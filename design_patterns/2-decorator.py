@@ -19,7 +19,7 @@ class Coffee(Beverage):
 
     def cost(self):
         """Return the coffee cost."""
-        return 45
+        return 50
 
     def description(self):
         """Return the coffee description."""
