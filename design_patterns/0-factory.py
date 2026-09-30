@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Factory pattern with a vehicle registry"""
 
 
@@ -40,7 +40,7 @@ class VehicleFactory:
     _registry = {
             "bus": Bus,
             "train": Train,
-            "bice": Bike
+            "bike": Bike
     }
 
     @classmethod
@@ -52,7 +52,7 @@ class VehicleFactory:
     def create(cls, kind):
         """Create a vehicle from the registry"""
         vehicle_cls = cls._registry[kind]
-        return vehicle_cls
+        return vehicle_cls()
 
 
 def main():
@@ -61,7 +61,7 @@ def main():
 
     print(factory.create("bus").mode())
     print(factory.create("train").mode())
-    print(factory.create("bice").mode())
+    print(factory.create("bike").mode())
 
     factory.register_kind("scooter", Scooter)
     print(factory.create("scooter").mode())
